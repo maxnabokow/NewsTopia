@@ -26,21 +26,15 @@ class FirestoreService {
                 for document in documents {
 
                     let id = document.documentID
+                    let title = document["title"] as? String ?? ""
+                    let summary = document["summary"] as? String ?? ""
+                    let body = document["body"] as? String ?? ""
+                    let authorId = document["authorId"] as? Int ?? -1
+                    let source = document["source"] as? String ?? ""
+                    let url = document["url"] as? String ?? ""
+                    let hits = document["hits"] as? Int ?? 0
+                    let tags = document["tags"] as? [String] ?? []
                     let timeStamp = document["timestamp"] as? String ?? ""
-                    
-                    guard
-                        let title = document["title"] as? String,
-                        let summary = document["summary"] as? String,
-                        let body = document["body"] as? String,
-                        let authorId = document["authorId"] as? Int,
-                        let source = document["source"] as? String,
-                        let url = document["url"] as? String,
-                        let hits = document["hits"] as? Int,
-                        let tags = document["tags"] as? [String]
-                        else {
-                            print("Error decoding data")
-                            return
-                    }
                     
                     let article = Article(id: id, title: title, summary: summary, body: body, timeStamp: timeStamp, authorId: authorId, source: source, url: url, hits: hits, tags: tags)
                     articles.append(article)
