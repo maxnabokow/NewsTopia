@@ -1,5 +1,5 @@
-# trust-me
-An application designed to help people identify trustworthy news sources.
+# TrustMe
+An application designed to help people identify trustworthy news articles.
 Created at HackNC by Max Nabokow, Aan Patel, Beliz Yilmaz, and Theo Steiner.
 
 Algolia iOS Setup Link:
