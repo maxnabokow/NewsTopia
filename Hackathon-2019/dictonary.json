@@ -1,0 +1,263 @@
+[
+    {
+        "name": "StoryID",
+        "type": "int64",
+        "min": 146316.0,
+        "max": 196184.0
+    },
+    {
+        "name": "Title",
+        "type": "object",
+        "value": "text",
+        "desc": "The title of the news article"
+    },
+    {
+        "name": "Summary",
+        "type": "object",
+        "value": "text",
+        "desc": "A summary of the news article"
+    },
+    {
+        "name": "Body",
+        "type": "object",
+        "value": "text",
+        "desc": "The html text of the news article"
+    },
+    {
+        "name": "Hits",
+        "type": "int64",
+        "min": 0.0,
+        "max": 5580.0,
+        "desc": "The number of hits or views the article received"
+    },
+    {
+        "name": "AuthorID",
+        "type": "int64",
+        "min": 1.0,
+        "max": 356.0,
+        "desc": "The ID of the author"
+    },
+    {
+        "name": "CreatedDate",
+        "type": "object",
+        "value": "text",
+        "desc": "The date the article was created"
+    },
+    {
+        "name": "Country_USA",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ],
+        "desc": "True if the article is about the USA"
+    },
+    {
+        "name": "Country_CAN",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ],
+        "desc": "True if the article is about Canada"
+    },
+    {
+        "name": "Country_GBR",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ],
+        "desc": "True if the article is about the UK"
+    },
+    {
+        "name": "Tag_None",
+        "type": "int64:discrete",
+        "values": [
+            0
+        ]
+    },
+    {
+        "name": "Tag_National",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Office",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Industrial",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Retail",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_People",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Investment",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Analytics",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Development",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Finance",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Events",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Multifamily",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Hospitality",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Company",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Healthcare",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Legal",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Land",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Lease",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_Sale",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_MixedUse",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_SpecialPurpose",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_PublicSector",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_CompaniesPeople",
+        "type": "int64:binary",
+        "values": [
+            0,
+            1
+        ]
+    },
+    {
+        "name": "Tag_CoStarGreenReport",
+        "type": "int64:discrete",
+        "values": [
+            0
+        ]
+    }
+]
