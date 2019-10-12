@@ -25,6 +25,8 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         table.dataSource = self
         
         setupLayout()
+        
+        FirestoreService.shared.fetchArticles()
     }
     
     fileprivate func setupLayout() {
