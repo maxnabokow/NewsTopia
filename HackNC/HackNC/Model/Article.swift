@@ -8,16 +8,18 @@
 
 import Foundation
 
-struct Article {
-    var id: Int
+struct Article: Decodable {
+    var id: String
     
     var title: String
     var summary: String
     var body: String
     
-    var timeStamp: Date
+    var timeStamp: String
     var authorId: Int
+    var source: String
+    var url: String
     
     var hits: Int
-    var tags: [String]
+    var tags: [String?]
 }

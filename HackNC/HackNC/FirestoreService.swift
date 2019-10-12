@@ -15,13 +15,39 @@ class FirestoreService {
     static let shared = FirestoreService()
     let db = Firestore.firestore()
     
-    func fetchArticles() {
-        db.collection("articles").document("Io13YaSFqoTeKbcyGmgQ").collection("reviews").getDocuments { (snapshot, err) in
-            
-            guard let id = snapshot?.documents[0].data()["user_id"] as? String else { return }
-            
-            print(id)
-        }
+    func fetchArticles(completion: @escaping ([Article]) -> Void) {
         
+        db.collection("articles").addSnapshotListener { (snapshot, err) in
+            if err == nil {
+                guard let documents = snapshot?.documents else { return }
+                
+                var articles = [Article]()
+                
+                for document in documents {
+
+                    let id = document.documentID
+                    let timeStamp = document["timestamp"] as? String ?? ""
+                    
+                    guard
+                        let title = document["title"] as? String,
+                        let summary = document["summary"] as? String,
+                        let body = document["body"] as? String,
+                        let authorId = document["authorId"] as? Int,
+                        let source = document["source"] as? String,
+                        let url = document["url"] as? String,
+                        let hits = document["hits"] as? Int,
+                        let tags = document["tags"] as? [String]
+                        else {
+                            print("Error decoding data")
+                            return
+                    }
+                    
+                    let article = Article(id: id, title: title, summary: summary, body: body, timeStamp: timeStamp, authorId: authorId, source: source, url: url, hits: hits, tags: tags)
+                    articles.append(article)
+                    
+                    completion(articles)
+                }
+            }
+        }
     }
 }

@@ -11,27 +11,22 @@ import LBTATools
 
 class SpeechBubble: UIView {
     
-    var article: Article? {
-        didSet {
-            titleLabel.text = article?.title
-            summaryLabel.text = article?.summary
-        }
-    }
+    var article: Article?
     
     let titleLabel: UILabel = {
-        let l = UILabel(text: "Paramount Transportation Leases 136,000-SF Cheverly Facility", font: .boldSystemFont(ofSize: 20), textAlignment: .left, numberOfLines: 0)
+        let l = UILabel(text: "", font: .boldSystemFont(ofSize: 20), textAlignment: .left, numberOfLines: 0)
         l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return l
     }()
     
     let summaryLabel: UILabel = {
-        let l = UILabel(text: "Will Occupy Former Safeway Warehouse in September", font: .systemFont(ofSize: 14), textAlignment: .left, numberOfLines: 0)
+        let l = UILabel(text: "", font: .systemFont(ofSize: 14), textAlignment: .left, numberOfLines: 0)
         l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return l
     }()
     
     let tagLabel: UILabel = {
-        let l = UILabel(text: "# Finance", font: .systemFont(ofSize: 16, weight: .semibold), textAlignment: .left, numberOfLines: 0)
+        let l = UILabel(text: "#", font: .systemFont(ofSize: 16, weight: .semibold), textAlignment: .left, numberOfLines: 0)
         l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return l
     }()
@@ -46,7 +41,7 @@ class SpeechBubble: UIView {
     }()
     
     let dateLabel: UILabel = {
-        let l = UILabel(text: "2h ago", font: .systemFont(ofSize: 16, weight: .semibold), textAlignment: .right, numberOfLines: 1)
+        let l = UILabel(text: "", font: .systemFont(ofSize: 16, weight: .semibold), textAlignment: .right, numberOfLines: 1)
         l.textColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         return l
     }()
@@ -63,6 +58,26 @@ class SpeechBubble: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func configure(article: Article) {
+        titleLabel.text = article.title
+        summaryLabel.text = article.summary
+        
+        if !article.tags.isEmpty {
+            var tagLabelString = "#"
+                
+            for (i,tag) in article.tags.enumerated() {
+                if i > 0 {
+                    tagLabelString += ","
+                }
+                if let tag = tag {
+                    tagLabelString += " \(tag)"
+                }
+            }
+            
+            tagLabel.text = tagLabelString
+        }
     }
     
     fileprivate func setupLayout() {

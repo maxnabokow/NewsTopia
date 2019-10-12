@@ -10,6 +10,8 @@ import UIKit
 
 class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var articles: [Article?] = []
+    
     let table: UITableView = {
         let t = UITableView()
         t.separatorStyle = .none
@@ -26,7 +28,10 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         setupLayout()
         
-        FirestoreService.shared.fetchArticles()
+        FirestoreService.shared.fetchArticles { (articles) in
+            self.articles = articles
+            self.table.reloadData()
+        }
     }
     
     fileprivate func setupLayout() {
@@ -35,11 +40,14 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        return articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return FeedCell()
+        let cell = FeedCell()
+        guard let article = articles[indexPath.row] else { return cell }
+        cell.speechBubble.configure(article: article)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
