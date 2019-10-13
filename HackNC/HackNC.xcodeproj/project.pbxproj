@@ -61,7 +61,7 @@
 		50196674235306AF00C55F98 /* RegexService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexService.swift; sourceTree = "<group>"; };
 		50196676235321DF00C55F98 /* CreateArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateArticleVC.swift; sourceTree = "<group>"; };
 		501966782353227F00C55F98 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		502037C823520ACC00C1FF3F /* HackNC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackNC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		502037C823520ACC00C1FF3F /* TrustMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrustMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		502037CB23520ACC00C1FF3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		502037CD23520ACC00C1FF3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		502037CF23520ACC00C1FF3F /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		502037C923520ACC00C1FF3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				502037C823520ACC00C1FF3F /* HackNC.app */,
+				502037C823520ACC00C1FF3F /* TrustMe.app */,
 				506091062352AFA10028CF46 /* ShareExtension.appex */,
 			);
 			name = Products;
@@ -235,7 +235,7 @@
 			);
 			name = HackNC;
 			productName = HackNC;
-			productReference = 502037C823520ACC00C1FF3F /* HackNC.app */;
+			productReference = 502037C823520ACC00C1FF3F /* TrustMe.app */;
 			productType = "com.apple.product-type.application";
 		};
 		506091052352AFA10028CF46 /* ShareExtension */ = {
@@ -562,7 +562,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mnabokow.trustme;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TrustMe;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -583,7 +583,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mnabokow.trustme;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TrustMe;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

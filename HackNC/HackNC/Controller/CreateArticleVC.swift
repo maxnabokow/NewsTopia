@@ -91,6 +91,7 @@ class CreateArticleVC: UIViewController {
         FirestoreService.shared.isUnique(article) { (unique) in
             if unique {
                 FirestoreService.shared.createArticle(self.article)
+                
             }
             
             let review = Review(user_id: Auth.auth().currentUser?.uid ?? "", comment: self.commentTextView.text, rating: Int(self.ratingSlider.value))

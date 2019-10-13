@@ -17,7 +17,7 @@ class FirestoreService {
     static let shared = FirestoreService()
     
     let articles = Firestore.firestore().collection("articles")
-
+    
     func fetchArticles(completion: @escaping ([Article]) -> Void) {
         
         articles.addSnapshotListener { (snapshot, err) in
@@ -27,17 +27,18 @@ class FirestoreService {
                 var articles = [Article]()
                 
                 for document in documents {
-
+                    
                     let id = document.documentID
                     let title = document["title"] as? String ?? ""
                     let description = document["description"] as? String ?? ""
-
+                    
                     let source = document["source"] as? String ?? ""
                     let url = document["url"] as? String ?? ""
-
-                    let timeStamp = document["timestamp"] as? String ?? ""
                     
-                    let article = Article(id: id, title: title, description: description, timeStamp: timeStamp, source: source, url: url)
+                    let totalRating = document["totalRating"] as? Int ?? 0
+                    let numReviews = document["numReviews"] as? Int ?? 0
+                    
+                    let article = Article(id: id, title: title, description: description, source: source, url: url, totalRating: totalRating, numReviews: numReviews)
                     articles.append(article)
                     
                     completion(articles)
@@ -59,8 +60,8 @@ class FirestoreService {
             "description" : article.description ?? "",
             "source" : article.source ?? "",
             "url" : article.url ?? "",
-            "timestamp" : article.timeStamp ?? ""
-            ])
+            "numReviews" : 0
+        ])
     }
     
     func createReview(for article: Article, review: Review) {
@@ -69,26 +70,27 @@ class FirestoreService {
             let articleSource = article.source
             else { return }
         
+        // create review document
         articles.document(articleTitle + articleSource).collection("Reviews").addDocument(data: [
             "userId" : Auth.auth().currentUser?.uid ?? "",
             "comment" : review.comment ?? "",
             "rating" : review.rating
-            ])
-        let currentRating = article.totalRating
-        
-        articles.document(articleTitle + articleSource).setData([
-            "title" : article.title ?? "",
-            "description" : article.description ?? "",
-            "source" : article.source ?? "",
-            "url" : article.url ?? "",
-            "timestamp" : article.timeStamp ?? "",
-            "totalRating" : (currentRating + review.rating)
         ])
         
+        // update article document
+        articles.document(articleTitle + articleSource).updateData([
+//            "title" : articleTitle,
+//            "description" : article.description ?? "",
+//            "source" : articleSource,
+//            "url" : article.url ?? "",
+//            "timestamp" : article.timeStamp ?? "",
+            "totalRating" : FieldValue.increment(Int64(review.rating)),
+            "numReviews" : FieldValue.increment(Int64(1))
+        ])
     }
     
     func isUnique(_ article: Article, completion: @escaping (Bool) -> Void) {
-
+        
         if let articleTitle = article.title,
             let articleSource = article.source {
             

@@ -42,10 +42,6 @@ public class HTMLService {
                 if let fullDomain = url?.host {
                     source = String(fullDomain.dropFirst(4))
                 }
-                
-                if let element = try doc.select("meta[property=og:pubdate]").first() {
-                    pubDate = try element.attr("content")
-                }
 //
 //                if let h1 = try doc.select("h1").first() {
 //                    title = try h1.text()
@@ -67,7 +63,7 @@ public class HTMLService {
         defaults.removeObject(forKey: "recentUrl")
         defaults.removeObject(forKey: "recentUrlHTML")
         
-        let article = Article(id: UUID().uuidString, title: title, description: description, timeStamp: pubDate, source: source, url: urlString)
+        let article = Article(id: UUID().uuidString, title: title, description: description, source: source, url: urlString)
         
         return article
     }

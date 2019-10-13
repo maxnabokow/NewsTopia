@@ -14,9 +14,9 @@ struct Article: Decodable {
     var title: String?
     var description: String?
     
-    var timeStamp: String?
     var source: String?
     var url: String?
     
-    var totalRating: Double = 0.0
+    var totalRating: Int = 0
+    var numReviews: Int = 0
 }
