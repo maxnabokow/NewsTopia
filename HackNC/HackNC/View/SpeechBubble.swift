@@ -14,26 +14,26 @@ class SpeechBubble: UIView {
     var article: Article!
     
     let titleLabel: UILabel = {
-        let l = UILabel(text: "", font: .boldSystemFont(ofSize: 20), textAlignment: .left, numberOfLines: 0)
+        let l = UILabel(text: "", font: .boldSystemFont(ofSize: 20), textAlignment: .left, numberOfLines: 2)
         l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return l
     }()
     
     let sourceLabel: UILabel = {
-        let l = UILabel(text: "", font: .systemFont(ofSize: 16), textAlignment: .left, numberOfLines: 0)
+        let l = UILabel(text: "", font: .systemFont(ofSize: 16), textAlignment: .left, numberOfLines: 1)
         l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return l
     }()
     
     let descriptionLabel: UILabel = {
-        let l = UILabel(text: "", font: .systemFont(ofSize: 14), textAlignment: .left, numberOfLines: 0)
+        let l = UILabel(text: "", font: .systemFont(ofSize: 14), textAlignment: .left, numberOfLines: 3)
         l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return l
     }()
 
     let gradientView: UIView = {
         let v = UIView()
-        v.layer.cornerRadius = 8
+        v.layer.cornerRadius = 9
         v.layer.borderColor = UIColor.darkGray.cgColor
         v.layer.borderWidth = 0.6
         v.setupShadow(opacity: 0.3, radius: 6, offset: .init(width: 3, height: 3), color: .black)
@@ -41,8 +41,8 @@ class SpeechBubble: UIView {
     }()
     
     let trustLabel: UILabel = {
-        let l = UILabel(text: "", font: .systemFont(ofSize: 16, weight: .semibold), textAlignment: .right, numberOfLines: 1)
-        l.textColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
+        let l = UILabel(text: "", font: .systemFont(ofSize: 20, weight: .semibold), textAlignment: .right, numberOfLines: 1)
+        l.textColor = .darkGray
         return l
     }()
 
@@ -51,7 +51,7 @@ class SpeechBubble: UIView {
         
         backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.9568627451, blue: 0.9568627451, alpha: 1)
         layer.cornerRadius = 24
-        setupShadow(opacity: 0.3, radius: 6, offset: .init(width: 4, height: 4), color: .black)
+        setupShadow(opacity: 0.5, radius: 6, offset: .init(width: 3, height: 3), color: .white)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -109,11 +109,11 @@ class SpeechBubble: UIView {
         
         descriptionLabel.anchor(top: sourceLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 24, bottom: 0, right: 24))
         
-        gradientView.anchor(top: descriptionLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 24, bottom: 0, right: 0))
+        gradientView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: nil, padding: .init(top: 0, left: 24, bottom: 40, right: 0))
         
         
-        gradientView.heightAnchor.constraint(equalToConstant: 14).isActive = true
+        gradientView.heightAnchor.constraint(equalToConstant: 18).isActive = true
         
-        trustLabel.anchor(top: nil, leading: nil, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 12, right: 24))
+        trustLabel.anchor(top: nil, leading: nil, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 6, right: 24))
     }
 }

@@ -17,7 +17,11 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     let table: UITableView = {
         let t = UITableView()
+        t.backgroundColor = .darkGray
         t.separatorStyle = .none
+        t.allowsSelection = false
+        t.showsVerticalScrollIndicator = false
+        t.showsHorizontalScrollIndicator = false
         return t
     }()
     
@@ -64,8 +68,15 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
-        navigationItem.leftBarButtonItem = .init(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        view.backgroundColor = .darkGray
+        navigationController?.navigationBar.barTintColor = .darkGray
+        navigationController?.navigationBar.backgroundColor = .darkGray
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
+        navigationItem.rightBarButtonItem = .init(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .white
         fetchArticles()
         
         title = "Feed"
@@ -96,7 +107,9 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     fileprivate func setupLayout() {
         view.addSubview(table)
-        table.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
+        
+        table.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 24, right: 6))
+        table.layer.cornerRadius = 24
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

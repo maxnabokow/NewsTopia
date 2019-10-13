@@ -18,7 +18,7 @@ class FeedCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        backgroundColor = .darkGray
         setupLayout()
     }
     
@@ -29,7 +29,7 @@ class FeedCell: UITableViewCell {
     fileprivate func setupLayout() {
 
         addSubview(speechBubble)
-        speechBubble.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 8, left: 8, bottom: 8, right: 8))
+        speechBubble.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 8, bottom: 10, right: 16))
         
     }
 
