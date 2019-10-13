@@ -26,6 +26,7 @@
 		506091092352AFA10028CF46 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506091082352AFA10028CF46 /* ShareViewController.swift */; };
 		5060910C2352AFA10028CF46 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5060910A2352AFA10028CF46 /* MainInterface.storyboard */; };
 		506091102352AFA10028CF46 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 506091062352AFA10028CF46 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		50BB81BB23533DB500F24E96 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB81BA23533DB500F24E96 /* Review.swift */; };
 		50C372232352EE24001789CB /* HTMLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C372222352EE24001789CB /* HTMLService.swift */; };
 		AB41627E045C784A5CEBB943 /* Pods_HackNC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53A74553206865960D685B9 /* Pods_HackNC.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		5060910D2352AFA10028CF46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		506091172352B4EC0028CF46 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		506091182352B5240028CF46 /* HackNC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HackNC.entitlements; sourceTree = "<group>"; };
+		50BB81BA23533DB500F24E96 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		50C372222352EE24001789CB /* HTMLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLService.swift; sourceTree = "<group>"; };
 		C53A74553206865960D685B9 /* Pods_HackNC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackNC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				502037E82352355600C1FF3F /* Article.swift */,
+				50BB81BA23533DB500F24E96 /* Review.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				501966792353227F00C55F98 /* LoginVC.swift in Sources */,
 				50196677235321DF00C55F98 /* CreateArticleVC.swift in Sources */,
 				506090EE235273B30028CF46 /* FirestoreService.swift in Sources */,
+				50BB81BB23533DB500F24E96 /* Review.swift in Sources */,
 				506090EC23525AF60028CF46 /* GradientProgressView.swift in Sources */,
 				502037EB235236B800C1FF3F /* SpeechBubble.swift in Sources */,
 				50C372232352EE24001789CB /* HTMLService.swift in Sources */,

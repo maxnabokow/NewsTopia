@@ -9,7 +9,7 @@
 import Foundation
 
 struct Article: Decodable {
-    var id: String?
+    var id: String
     
     var title: String?
     var description: String?
@@ -17,4 +17,6 @@ struct Article: Decodable {
     var timeStamp: String?
     var source: String?
     var url: String?
+    
+    var totalRating: Double = 0.0
 }

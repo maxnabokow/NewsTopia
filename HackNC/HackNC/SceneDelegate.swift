@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -22,9 +23,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         let mainNavigationVC = MainNavigationVC()
-        mainNavigationVC.viewControllers = [DashboardVC()]
-        window?.rootViewController = mainNavigationVC
         
+        mainNavigationVC.viewControllers = [DashboardVC()]
+        
+        window?.rootViewController = mainNavigationVC
         window?.makeKeyAndVisible()
     }
 

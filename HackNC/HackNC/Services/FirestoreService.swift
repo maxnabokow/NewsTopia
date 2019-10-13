@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import FirebaseAuth
 
 class FirestoreService {
     
@@ -16,11 +17,7 @@ class FirestoreService {
     static let shared = FirestoreService()
     
     let articles = Firestore.firestore().collection("articles")
-    
-    func configure() {
-        FirebaseApp.configure()
-    }
-    
+
     func fetchArticles(completion: @escaping ([Article]) -> Void) {
         
         articles.addSnapshotListener { (snapshot, err) in
@@ -49,20 +46,53 @@ class FirestoreService {
         }
     }
     
-    func create(_ article: Article) {
-        articles.addDocument(data: [
+    func createArticle(_ article: Article) {
+        
+        guard
+            let articleTitle = article.title,
+            let articleSource = article.source
+            else { return }
+        
+        
+        articles.document(articleTitle + articleSource).setData([
             "title" : article.title ?? "",
             "description" : article.description ?? "",
             "source" : article.source ?? "",
             "url" : article.url ?? "",
             "timestamp" : article.timeStamp ?? ""
+            ])
+    }
+    
+    func createReview(for article: Article, review: Review) {
+        guard
+            let articleTitle = article.title,
+            let articleSource = article.source
+            else { return }
+        
+        articles.document(articleTitle + articleSource).collection("Reviews").addDocument(data: [
+            "userId" : Auth.auth().currentUser?.uid ?? "",
+            "comment" : review.comment ?? "",
+            "rating" : review.rating
+            ])
+        let currentRating = article.totalRating
+        
+        articles.document(articleTitle + articleSource).setData([
+            "title" : article.title ?? "",
+            "description" : article.description ?? "",
+            "source" : article.source ?? "",
+            "url" : article.url ?? "",
+            "timestamp" : article.timeStamp ?? "",
+            "totalRating" : (currentRating + review.rating)
         ])
+        
     }
     
     func isUnique(_ article: Article, completion: @escaping (Bool) -> Void) {
 
         if let articleTitle = article.title,
             let articleSource = article.source {
+            
+            print(articles.document(articleTitle + articleSource))
             
             let query = articles.whereField("title", isEqualTo: articleTitle).whereField("source", isEqualTo: articleSource)
             

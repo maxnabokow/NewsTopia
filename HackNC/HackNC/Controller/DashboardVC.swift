@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 import SwiftSoup
 
 class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -19,28 +20,53 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         t.separatorStyle = .none
         return t
     }()
+    
+    
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        if Auth.auth().currentUser == nil {
+//            present(LoginVC(), animated: true)
+//        } else {
+//            if HTMLService.shared.hasRecentPost() {
+//                if let newArticle = HTMLService.shared.parseRecentPost() {
+//
+//                    let createArticleVC = CreateArticleVC()
+//                    createArticleVC.configure(article: newArticle)
+//                    present(createArticleVC, animated: true)
+//
+//                    FirestoreService.shared.isUnique(newArticle, completion: { (unique) in
+//                        if unique {
+//                            FirestoreService.shared.create(newArticle)
+//                        }
+//                    })
+//                }
+//            }
+//        }
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if Auth.auth().currentUser == nil {
+            present(LoginVC(), animated: true)
+        } else {
+            if HTMLService.shared.hasRecentPost() {
+                if let newArticle = HTMLService.shared.parseRecentPost() {
+                    
+                    let createArticleVC = CreateArticleVC()
+                    createArticleVC.configure(article: newArticle)
+                    present(createArticleVC, animated: true)
+                }
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
+        navigationItem.leftBarButtonItem = .init(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
         fetchArticles()
-        
-        if HTMLService.shared.hasRecentPost() {
-            if let newArticle = HTMLService.shared.parseRecentPost() {
-                               
-//                if !articles.contains(where: { (existingArticle) -> Bool in
-//
-//                    return existingArticle.title == newArticle.title && existingArticle.source == newArticle.source
-//                }) {
-                FirestoreService.shared.isUnique(newArticle, completion: { (unique) in
-                    if unique {
-                        FirestoreService.shared.create(newArticle)
-                    }
-                })
-            }
-        }
         
         title = "Feed"
         
@@ -48,6 +74,17 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         table.dataSource = self
         
         setupLayout()
+    }
+    
+    @objc func logoutTapped() {
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                present(LoginVC(), animated: true, completion: nil)
+            } catch {
+                print("Failed to log out: \(error.localizedDescription)")
+            }
+        }
     }
     
     fileprivate func fetchArticles() {
