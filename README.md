@@ -7,3 +7,9 @@ https://github.com/algolia/algoliasearch-client-swift/tree/master/AlgoliaSearch.
 
 Algolia Firestore Example Link:
 https://firebase.google.com/docs/firestore/solutions/search
+
+Regex for when there's no og:site_name:
+^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)
+
+Regex Swift help on Stackoverflow:
+https://stackoverflow.com/questions/27880650/swift-extract-regex-matches
