@@ -10,6 +10,8 @@ import UIKit
 
 class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    private var defaults: UserDefaults = .shared
+    
     var articles: [Article?] = []
     
     let table: UITableView = {
@@ -22,7 +24,16 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        
+        print(defaults.object(forKey: "recentUrlHTML"))
+        
+        if let html = defaults.object(forKey: "recentUrlHTML") as? String {
+            
+            
+        }
+        
         title = "Feed"
+        
         table.delegate = self
         table.dataSource = self
         

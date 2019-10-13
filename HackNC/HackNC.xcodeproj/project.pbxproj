@@ -20,8 +20,35 @@
 		502037ED2352381500C1FF3F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502037EC2352381500C1FF3F /* Extensions.swift */; };
 		506090EC23525AF60028CF46 /* GradientProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506090EB23525AF60028CF46 /* GradientProgressView.swift */; };
 		506090EE235273B30028CF46 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506090ED235273B30028CF46 /* FirestoreService.swift */; };
+		506091092352AFA10028CF46 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506091082352AFA10028CF46 /* ShareViewController.swift */; };
+		5060910C2352AFA10028CF46 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5060910A2352AFA10028CF46 /* MainInterface.storyboard */; };
+		506091102352AFA10028CF46 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 506091062352AFA10028CF46 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AB41627E045C784A5CEBB943 /* Pods_HackNC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53A74553206865960D685B9 /* Pods_HackNC.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5060910E2352AFA10028CF46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 502037C023520ACC00C1FF3F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 506091052352AFA10028CF46;
+			remoteInfo = ShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		506091112352AFA10028CF46 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				506091102352AFA10028CF46 /* ShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		42CB806B8CB1099400ECDBCE /* Pods-HackNC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackNC.debug.xcconfig"; path = "Target Support Files/Pods-HackNC/Pods-HackNC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -41,6 +68,12 @@
 		502037EC2352381500C1FF3F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		506090EB23525AF60028CF46 /* GradientProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientProgressView.swift; sourceTree = "<group>"; };
 		506090ED235273B30028CF46 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		506091062352AFA10028CF46 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		506091082352AFA10028CF46 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		5060910B2352AFA10028CF46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		5060910D2352AFA10028CF46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		506091172352B4EC0028CF46 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
+		506091182352B5240028CF46 /* HackNC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HackNC.entitlements; sourceTree = "<group>"; };
 		C53A74553206865960D685B9 /* Pods_HackNC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackNC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -50,6 +83,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB41627E045C784A5CEBB943 /* Pods_HackNC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		506091032352AFA10028CF46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				502037CA23520ACC00C1FF3F /* HackNC */,
+				506091072352AFA10028CF46 /* ShareExtension */,
 				502037C923520ACC00C1FF3F /* Products */,
 				AB1E8B9051E2F443613D3D46 /* Pods */,
 				30A50AEF894E95F96399832B /* Frameworks */,
@@ -78,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				502037C823520ACC00C1FF3F /* HackNC.app */,
+				506091062352AFA10028CF46 /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +127,7 @@
 		502037CA23520ACC00C1FF3F /* HackNC */ = {
 			isa = PBXGroup;
 			children = (
+				506091182352B5240028CF46 /* HackNC.entitlements */,
 				502037E52352340500C1FF3F /* Model */,
 				502037E62352340C00C1FF3F /* View */,
 				502037E72352341100C1FF3F /* Controller */,
@@ -127,6 +170,17 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		506091072352AFA10028CF46 /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				506091172352B4EC0028CF46 /* ShareExtension.entitlements */,
+				506091082352AFA10028CF46 /* ShareViewController.swift */,
+				5060910A2352AFA10028CF46 /* MainInterface.storyboard */,
+				5060910D2352AFA10028CF46 /* Info.plist */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
 		AB1E8B9051E2F443613D3D46 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,15 +202,34 @@
 				502037C523520ACC00C1FF3F /* Frameworks */,
 				502037C623520ACC00C1FF3F /* Resources */,
 				32BB602398A9815097C2FF8C /* [CP] Embed Pods Frameworks */,
+				506091112352AFA10028CF46 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5060910F2352AFA10028CF46 /* PBXTargetDependency */,
 			);
 			name = HackNC;
 			productName = HackNC;
 			productReference = 502037C823520ACC00C1FF3F /* HackNC.app */;
 			productType = "com.apple.product-type.application";
+		};
+		506091052352AFA10028CF46 /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 506091142352AFA10028CF46 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				506091022352AFA10028CF46 /* Sources */,
+				506091032352AFA10028CF46 /* Frameworks */,
+				506091042352AFA10028CF46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = 506091062352AFA10028CF46 /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -169,6 +242,9 @@
 				ORGANIZATIONNAME = "Maximilian Nabokow";
 				TargetAttributes = {
 					502037C723520ACC00C1FF3F = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					506091052352AFA10028CF46 = {
 						CreatedOnToolsVersion = 11.1;
 					};
 				};
@@ -187,6 +263,7 @@
 			projectRoot = "";
 			targets = (
 				502037C723520ACC00C1FF3F /* HackNC */,
+				506091052352AFA10028CF46 /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -199,6 +276,14 @@
 				502037D823520ACE00C1FF3F /* LaunchScreen.storyboard in Resources */,
 				502037D523520ACE00C1FF3F /* Assets.xcassets in Resources */,
 				502037E223522D4A00C1FF3F /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		506091042352AFA10028CF46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5060910C2352AFA10028CF46 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +349,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		506091022352AFA10028CF46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				506091092352AFA10028CF46 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5060910F2352AFA10028CF46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 506091052352AFA10028CF46 /* ShareExtension */;
+			targetProxy = 5060910E2352AFA10028CF46 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		502037D623520ACE00C1FF3F /* LaunchScreen.storyboard */ = {
@@ -273,6 +374,14 @@
 				502037D723520ACE00C1FF3F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5060910A2352AFA10028CF46 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5060910B2352AFA10028CF46 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -396,7 +505,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42CB806B8CB1099400ECDBCE /* Pods-HackNC.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HackNC/HackNC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5KYHQSZAZ;
 				INFOPLIST_FILE = HackNC/Info.plist;
@@ -415,7 +526,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4565F6DBD3E1D571828887B2 /* Pods-HackNC.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HackNC/HackNC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5KYHQSZAZ;
 				INFOPLIST_FILE = HackNC/Info.plist;
@@ -425,6 +538,48 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mnabokow.trustme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		506091122352AFA10028CF46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U5KYHQSZAZ;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mnabokow.trustme.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		506091132352AFA10028CF46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U5KYHQSZAZ;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mnabokow.trustme.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -447,6 +602,15 @@
 			buildConfigurations = (
 				502037DD23520ACE00C1FF3F /* Debug */,
 				502037DE23520ACE00C1FF3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		506091142352AFA10028CF46 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				506091122352AFA10028CF46 /* Debug */,
+				506091132352AFA10028CF46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
