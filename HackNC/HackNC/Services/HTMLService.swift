@@ -24,7 +24,6 @@ public class HTMLService {
         
         var title: String?
         var description: String?
-        var pubDate: String?
         var source: String?
         
         guard let urlString = defaults.object(forKey: "recentUrl") as? String else { return nil }

@@ -19,6 +19,12 @@ class SpeechBubble: UIView {
         return l
     }()
     
+    let sourceLabel: UILabel = {
+        let l = UILabel(text: "", font: .systemFont(ofSize: 16), textAlignment: .left, numberOfLines: 0)
+        l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
+        return l
+    }()
+    
     let descriptionLabel: UILabel = {
         let l = UILabel(text: "", font: .systemFont(ofSize: 14), textAlignment: .left, numberOfLines: 0)
         l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
@@ -56,6 +62,7 @@ class SpeechBubble: UIView {
         self.article = article
         
         titleLabel.text = article.title
+        sourceLabel.text = article.source ?? ""
         descriptionLabel.text = article.description
         
         setupLayout()
@@ -91,19 +98,22 @@ class SpeechBubble: UIView {
     
     fileprivate func setupLayout() {
         addSubview(titleLabel)
+        addSubview(sourceLabel)
         addSubview(descriptionLabel)
         addSubview(gradientView)
         addSubview(trustLabel)
         
         titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 24, bottom: 0, right: 24))
         
-        descriptionLabel.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 24, bottom: 0, right: 24))
+        sourceLabel.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 24, bottom: 0, right: 24))
+        
+        descriptionLabel.anchor(top: sourceLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 24, bottom: 0, right: 24))
         
         gradientView.anchor(top: descriptionLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 24, bottom: 0, right: 0))
         
         
         gradientView.heightAnchor.constraint(equalToConstant: 14).isActive = true
         
-        trustLabel.anchor(top: gradientView.bottomAnchor, leading: nil, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 16, left: 0, bottom: 12, right: 24))
+        trustLabel.anchor(top: nil, leading: nil, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 12, right: 24))
     }
 }
