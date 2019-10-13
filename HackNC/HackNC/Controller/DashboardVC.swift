@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import SwiftSoup
 
 class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    private var defaults: UserDefaults = .shared
     
     var articles: [Article?] = []
     
@@ -25,12 +24,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         view.backgroundColor = .white
         
-        print(defaults.object(forKey: "recentUrlHTML"))
-        
-        if let html = defaults.object(forKey: "recentUrlHTML") as? String {
-            
-            
-        }
+        HTMLService.shared.parseRecentPost()
         
         title = "Feed"
         

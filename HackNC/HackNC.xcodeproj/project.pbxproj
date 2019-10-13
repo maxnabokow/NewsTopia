@@ -23,6 +23,7 @@
 		506091092352AFA10028CF46 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506091082352AFA10028CF46 /* ShareViewController.swift */; };
 		5060910C2352AFA10028CF46 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5060910A2352AFA10028CF46 /* MainInterface.storyboard */; };
 		506091102352AFA10028CF46 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 506091062352AFA10028CF46 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		50C372232352EE24001789CB /* HTMLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C372222352EE24001789CB /* HTMLService.swift */; };
 		AB41627E045C784A5CEBB943 /* Pods_HackNC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53A74553206865960D685B9 /* Pods_HackNC.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		5060910D2352AFA10028CF46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		506091172352B4EC0028CF46 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		506091182352B5240028CF46 /* HackNC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HackNC.entitlements; sourceTree = "<group>"; };
+		50C372222352EE24001789CB /* HTMLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLService.swift; sourceTree = "<group>"; };
 		C53A74553206865960D685B9 /* Pods_HackNC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackNC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,7 +129,6 @@
 		502037CA23520ACC00C1FF3F /* HackNC */ = {
 			isa = PBXGroup;
 			children = (
-				506091182352B5240028CF46 /* HackNC.entitlements */,
 				502037E52352340500C1FF3F /* Model */,
 				502037E62352340C00C1FF3F /* View */,
 				502037E72352341100C1FF3F /* Controller */,
@@ -139,6 +140,8 @@
 				502037E123522D4A00C1FF3F /* GoogleService-Info.plist */,
 				502037EC2352381500C1FF3F /* Extensions.swift */,
 				506090ED235273B30028CF46 /* FirestoreService.swift */,
+				50C372222352EE24001789CB /* HTMLService.swift */,
+				506091182352B5240028CF46 /* HackNC.entitlements */,
 			);
 			path = HackNC;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				506090EE235273B30028CF46 /* FirestoreService.swift in Sources */,
 				506090EC23525AF60028CF46 /* GradientProgressView.swift in Sources */,
 				502037EB235236B800C1FF3F /* SpeechBubble.swift in Sources */,
+				50C372232352EE24001789CB /* HTMLService.swift in Sources */,
 				502037E4235233FD00C1FF3F /* FeedCell.swift in Sources */,
 				502037ED2352381500C1FF3F /* Extensions.swift in Sources */,
 				502037E92352355600C1FF3F /* Article.swift in Sources */,

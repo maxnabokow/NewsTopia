@@ -12,11 +12,9 @@ struct Article: Decodable {
     var id: String
     
     var title: String
-    var summary: String
-    var body: String
+    var description: String
     
     var timeStamp: String
-    var authorId: Int
     var source: String
     var url: String
     
