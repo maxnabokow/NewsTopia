@@ -27,15 +27,20 @@ public class HTMLService {
         var pubDate: String?
         var source: String?
         
-        guard let url = defaults.object(forKey: "recentUrl") as? String else { return nil }
+        guard let urlString = defaults.object(forKey: "recentUrl") as? String else { return nil }
         
         if let html = defaults.object(forKey: "recentUrlHTML") as? String {
             
             do {
                 let doc = try SwiftSoup.parse(html)
                 
-                if let element = try doc.select("meta[property=og:site_name]").first() {
-                    source = try element.attr("content")
+//                if let element = try doc.select("meta[property=og:site_name]").first() {
+//                    source = try element.attr("content")
+//                }
+                
+                let url = URL(string: urlString)
+                if let fullDomain = url?.host {
+                    source = String(fullDomain.dropFirst(4))
                 }
                 
                 if let element = try doc.select("meta[property=og:pubdate]").first() {
@@ -59,7 +64,10 @@ public class HTMLService {
             }
         }
         
-        let article = Article(id: UUID().uuidString, title: title, description: description, timeStamp: pubDate, source: source, url: url)
+        defaults.removeObject(forKey: "recentUrl")
+        defaults.removeObject(forKey: "recentUrlHTML")
+        
+        let article = Article(id: UUID().uuidString, title: title, description: description, timeStamp: pubDate, source: source, url: urlString)
         
         return article
     }

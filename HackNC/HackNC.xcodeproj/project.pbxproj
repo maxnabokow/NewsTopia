@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50196675235306AF00C55F98 /* RegexService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50196674235306AF00C55F98 /* RegexService.swift */; };
+		50196677235321DF00C55F98 /* CreateArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50196676235321DF00C55F98 /* CreateArticleVC.swift */; };
+		501966792353227F00C55F98 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501966782353227F00C55F98 /* LoginVC.swift */; };
 		502037CC23520ACC00C1FF3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502037CB23520ACC00C1FF3F /* AppDelegate.swift */; };
 		502037CE23520ACC00C1FF3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502037CD23520ACC00C1FF3F /* SceneDelegate.swift */; };
 		502037D023520ACC00C1FF3F /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502037CF23520ACC00C1FF3F /* DashboardVC.swift */; };
@@ -54,6 +57,9 @@
 /* Begin PBXFileReference section */
 		42CB806B8CB1099400ECDBCE /* Pods-HackNC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackNC.debug.xcconfig"; path = "Target Support Files/Pods-HackNC/Pods-HackNC.debug.xcconfig"; sourceTree = "<group>"; };
 		4565F6DBD3E1D571828887B2 /* Pods-HackNC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackNC.release.xcconfig"; path = "Target Support Files/Pods-HackNC/Pods-HackNC.release.xcconfig"; sourceTree = "<group>"; };
+		50196674235306AF00C55F98 /* RegexService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexService.swift; sourceTree = "<group>"; };
+		50196676235321DF00C55F98 /* CreateArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateArticleVC.swift; sourceTree = "<group>"; };
+		501966782353227F00C55F98 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		502037C823520ACC00C1FF3F /* HackNC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackNC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		502037CB23520ACC00C1FF3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		502037CD23520ACC00C1FF3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +174,8 @@
 			children = (
 				502037DF2352261600C1FF3F /* MainNavigationVC.swift */,
 				502037CF23520ACC00C1FF3F /* DashboardVC.swift */,
+				50196676235321DF00C55F98 /* CreateArticleVC.swift */,
+				501966782353227F00C55F98 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 			children = (
 				50C372222352EE24001789CB /* HTMLService.swift */,
 				506090ED235273B30028CF46 /* FirestoreService.swift */,
+				50196674235306AF00C55F98 /* RegexService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 				502037C623520ACC00C1FF3F /* Resources */,
 				32BB602398A9815097C2FF8C /* [CP] Embed Pods Frameworks */,
 				506091112352AFA10028CF46 /* Embed App Extensions */,
+				2C2AE6FCDC082371E47C5AE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,6 +311,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2C2AE6FCDC082371E47C5AE3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HackNC/Pods-HackNC-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HackNC/Pods-HackNC-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HackNC/Pods-HackNC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		32BB602398A9815097C2FF8C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -348,6 +375,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				502037D023520ACC00C1FF3F /* DashboardVC.swift in Sources */,
+				50196675235306AF00C55F98 /* RegexService.swift in Sources */,
+				501966792353227F00C55F98 /* LoginVC.swift in Sources */,
+				50196677235321DF00C55F98 /* CreateArticleVC.swift in Sources */,
 				506090EE235273B30028CF46 /* FirestoreService.swift in Sources */,
 				506090EC23525AF60028CF46 /* GradientProgressView.swift in Sources */,
 				502037EB235236B800C1FF3F /* SpeechBubble.swift in Sources */,

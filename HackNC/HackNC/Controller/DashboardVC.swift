@@ -12,7 +12,7 @@ import SwiftSoup
 
 class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var articles: [Article?] = []
+    var articles = [Article]()
     
     let table: UITableView = {
         let t = UITableView()
@@ -25,8 +25,21 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         view.backgroundColor = .white
         
+        fetchArticles()
+        
         if HTMLService.shared.hasRecentPost() {
-            articles.append(HTMLService.shared.parseRecentPost())
+            if let newArticle = HTMLService.shared.parseRecentPost() {
+                               
+//                if !articles.contains(where: { (existingArticle) -> Bool in
+//
+//                    return existingArticle.title == newArticle.title && existingArticle.source == newArticle.source
+//                }) {
+                FirestoreService.shared.isUnique(newArticle, completion: { (unique) in
+                    if unique {
+                        FirestoreService.shared.create(newArticle)
+                    }
+                })
+            }
         }
         
         title = "Feed"
@@ -35,7 +48,9 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         table.dataSource = self
         
         setupLayout()
-        
+    }
+    
+    fileprivate func fetchArticles() {
         FirestoreService.shared.fetchArticles { (articles) in
             self.articles = articles
             self.table.reloadData()
@@ -53,8 +68,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = FeedCell()
-        guard let article = articles[indexPath.row] else { return cell }
-        cell.speechBubble.configure(article: article)
+        cell.speechBubble.configure(article: articles[indexPath.row])
         return cell
     }
     
