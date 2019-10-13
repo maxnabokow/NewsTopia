@@ -10,14 +10,13 @@ import Foundation
 import FirebaseFirestore
 
 class FirestoreService {
+    
     private init() {}
-    
     static let shared = FirestoreService()
-    let db = Firestore.firestore()
-    
+
     func fetchArticles(completion: @escaping ([Article]) -> Void) {
         
-        db.collection("articles").addSnapshotListener { (snapshot, err) in
+        Firestore.firestore().collection("articles").addSnapshotListener { (snapshot, err) in
             if err == nil {
                 guard let documents = snapshot?.documents else { return }
                 
@@ -27,16 +26,14 @@ class FirestoreService {
 
                     let id = document.documentID
                     let title = document["title"] as? String ?? ""
-                    let summary = document["summary"] as? String ?? ""
-                    let body = document["body"] as? String ?? ""
-                    let authorId = document["authorId"] as? Int ?? -1
+                    let description = document["description"] as? String ?? ""
+
                     let source = document["source"] as? String ?? ""
                     let url = document["url"] as? String ?? ""
-                    let hits = document["hits"] as? Int ?? 0
-                    let tags = document["tags"] as? [String] ?? []
+
                     let timeStamp = document["timestamp"] as? String ?? ""
                     
-                    let article = Article(id: id, title: title, summary: summary, body: body, timeStamp: timeStamp, authorId: authorId, source: source, url: url, hits: hits, tags: tags)
+                    let article = Article(id: id, title: title, description: description, timeStamp: timeStamp, source: source, url: url)
                     articles.append(article)
                     
                     completion(articles)

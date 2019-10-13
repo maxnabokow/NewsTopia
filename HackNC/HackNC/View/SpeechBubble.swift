@@ -19,17 +19,17 @@ class SpeechBubble: UIView {
         return l
     }()
     
-    let summaryLabel: UILabel = {
+    let descriptionLabel: UILabel = {
         let l = UILabel(text: "", font: .systemFont(ofSize: 14), textAlignment: .left, numberOfLines: 0)
         l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         return l
     }()
     
-    let tagLabel: UILabel = {
-        let l = UILabel(text: "#", font: .systemFont(ofSize: 16, weight: .semibold), textAlignment: .left, numberOfLines: 0)
-        l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-        return l
-    }()
+//    let tagLabel: UILabel = {
+//        let l = UILabel(text: "#", font: .systemFont(ofSize: 16, weight: .semibold), textAlignment: .left, numberOfLines: 0)
+//        l.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
+//        return l
+//    }()
     
     let gradientView: GradientProgressView = {
         let v = GradientProgressView()
@@ -62,38 +62,38 @@ class SpeechBubble: UIView {
     
     func configure(article: Article) {
         titleLabel.text = article.title
-        summaryLabel.text = article.summary
-        
-        if !article.tags.isEmpty {
-            var tagLabelString = "#"
-                
-            for (i,tag) in article.tags.enumerated() {
-                if i > 0 {
-                    tagLabelString += ","
-                }
-                if let tag = tag {
-                    tagLabelString += " \(tag)"
-                }
-            }
-            
-            tagLabel.text = tagLabelString
-        }
+        descriptionLabel.text = article.description
+//
+//        if !article.tags.isEmpty {
+//            var tagLabelString = "#"
+//
+//            for (i,tag) in article.tags.enumerated() {
+//                if i > 0 {
+//                    tagLabelString += ","
+//                }
+//                if let tag = tag {
+//                    tagLabelString += " \(tag)"
+//                }
+//            }
+//
+//            tagLabel.text = tagLabelString
+//        }
     }
     
     fileprivate func setupLayout() {
         addSubview(titleLabel)
-        addSubview(summaryLabel)
-        addSubview(tagLabel)
+        addSubview(descriptionLabel)
+//        addSubview(tagLabel)
         addSubview(gradientView)
         addSubview(dateLabel)
         
         titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 24, bottom: 0, right: 24))
         
-        summaryLabel.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 24, bottom: 0, right: 24))
+        descriptionLabel.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 24, bottom: 0, right: 24))
         
-        tagLabel.anchor(top: summaryLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 24, bottom: 0, right: 24))
-        
-        gradientView.anchor(top: tagLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 24, bottom: 0, right: 24))
+//        tagLabel.anchor(top: descriptionLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 24, bottom: 0, right: 24))
+//
+        gradientView.anchor(top: descriptionLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 24, bottom: 0, right: 24))
         gradientView.heightAnchor.constraint(equalToConstant: 14).isActive = true
         
         dateLabel.anchor(top: gradientView.bottomAnchor, leading: nil, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 16, left: 0, bottom: 12, right: 24))

@@ -129,18 +129,17 @@
 		502037CA23520ACC00C1FF3F /* HackNC */ = {
 			isa = PBXGroup;
 			children = (
+				502037CB23520ACC00C1FF3F /* AppDelegate.swift */,
+				502037CD23520ACC00C1FF3F /* SceneDelegate.swift */,
 				502037E52352340500C1FF3F /* Model */,
 				502037E62352340C00C1FF3F /* View */,
 				502037E72352341100C1FF3F /* Controller */,
-				502037CB23520ACC00C1FF3F /* AppDelegate.swift */,
-				502037CD23520ACC00C1FF3F /* SceneDelegate.swift */,
+				50C372242352FD2E001789CB /* Services */,
 				502037D423520ACE00C1FF3F /* Assets.xcassets */,
 				502037D623520ACE00C1FF3F /* LaunchScreen.storyboard */,
 				502037D923520ACE00C1FF3F /* Info.plist */,
 				502037E123522D4A00C1FF3F /* GoogleService-Info.plist */,
 				502037EC2352381500C1FF3F /* Extensions.swift */,
-				506090ED235273B30028CF46 /* FirestoreService.swift */,
-				50C372222352EE24001789CB /* HTMLService.swift */,
 				506091182352B5240028CF46 /* HackNC.entitlements */,
 			);
 			path = HackNC;
@@ -182,6 +181,15 @@
 				5060910D2352AFA10028CF46 /* Info.plist */,
 			);
 			path = ShareExtension;
+			sourceTree = "<group>";
+		};
+		50C372242352FD2E001789CB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				50C372222352EE24001789CB /* HTMLService.swift */,
+				506090ED235273B30028CF46 /* FirestoreService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		AB1E8B9051E2F443613D3D46 /* Pods */ = {

@@ -10,6 +10,8 @@ import UIKit
 import Social
 
 class ShareViewController: SLComposeServiceViewController {
+    
+    private let defaults = UserDefaults.init(suiteName: "group.mnabokow.trustme")
 
     override func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
@@ -25,13 +27,13 @@ class ShareViewController: SLComposeServiceViewController {
                         attachment.loadItem(forTypeIdentifier: "public.url", options: nil, completionHandler: { (url, error) in
                             if let shareURL = url as? URL {
                                 
-                                print(UserDefaults(suiteName: "group.mnabokow.trustme")?.object(forKey: "recentUrlHTML"))
-                               
                                 do {
-                                UserDefaults.init(suiteName: "group.mnabokow.trustme")?.set(try String(contentsOf: shareURL), forKey: "recentUrlHTML")
-                                } catch {}
+                                    self.defaults?.set(shareURL.absoluteString, forKey: "recentUrl")
+                                    self.defaults?.set(try String(contentsOf: shareURL), forKey: "recentUrlHTML")
+                                } catch {
+                                    
+                                }
                                 
-                                print(UserDefaults(suiteName: "group.mnabokow.trustme")?.object(forKey: "recentUrlHTML"))
                             }
                             self.extensionContext?.completeRequest(returningItems: [], completionHandler:nil)
                         })

@@ -6,6 +6,7 @@
 //  Copyright © 2019 Maximilian Nabokow. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import SwiftSoup
 
@@ -24,7 +25,9 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         view.backgroundColor = .white
         
-        HTMLService.shared.parseRecentPost()
+        if HTMLService.shared.hasRecentPost() {
+            articles.append(HTMLService.shared.parseRecentPost())
+        }
         
         title = "Feed"
         

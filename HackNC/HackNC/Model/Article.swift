@@ -9,15 +9,12 @@
 import Foundation
 
 struct Article: Decodable {
-    var id: String
+    var id: String?
     
-    var title: String
-    var description: String
+    var title: String?
+    var description: String?
     
-    var timeStamp: String
-    var source: String
-    var url: String
-    
-    var hits: Int
-    var tags: [String?]
+    var timeStamp: String?
+    var source: String?
+    var url: String?
 }
