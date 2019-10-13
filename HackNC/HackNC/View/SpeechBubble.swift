@@ -58,9 +58,6 @@ class SpeechBubble: UIView {
         titleLabel.text = article.title
         descriptionLabel.text = article.description
         
-        print(article.totalRating)
-        print(article.numReviews)
-        
         setupLayout()
     }
     
