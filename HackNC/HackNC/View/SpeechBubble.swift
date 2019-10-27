@@ -78,17 +78,17 @@ class SpeechBubble: UIView {
         let multiplier: CGFloat = avgRating / 10.0
         
         switch avgRating {
-        case 0: gradientView.backgroundColor = .red
-        case 1: gradientView.backgroundColor = .red
-        case 2: gradientView.backgroundColor = .red
-        case 3: gradientView.backgroundColor = .red
-        case 4: gradientView.backgroundColor = .yellow
-        case 5: gradientView.backgroundColor = .yellow
-        case 6: gradientView.backgroundColor = .yellow
-        case 7: gradientView.backgroundColor = .yellow
-        case 8: gradientView.backgroundColor = .green
-        case 9: gradientView.backgroundColor = .green
-        default: gradientView.backgroundColor = .green
+        case 0: gradientView.backgroundColor = .red; break
+        case 1: gradientView.backgroundColor = .red; break
+        case 2: gradientView.backgroundColor = .red; break
+        case 3: gradientView.backgroundColor = .red; break
+        case 4: gradientView.backgroundColor = .yellow; break
+        case 5: gradientView.backgroundColor = .yellow; break
+        case 6: gradientView.backgroundColor = .yellow; break
+        case 7: gradientView.backgroundColor = .yellow; break
+        case 8: gradientView.backgroundColor = .green; break
+        case 9: gradientView.backgroundColor = .green; break
+        default: gradientView.backgroundColor = .green; break
         }
         
         let cgfloatWidth = maxLength * multiplier

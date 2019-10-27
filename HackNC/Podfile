@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'HackNC' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HackNC
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
+  pod 'LBTATools'
+  pod 'JGProgressHUD'
+  pod 'SwiftSoup'
+  pod 'InstantSearchClient'
+
+end
