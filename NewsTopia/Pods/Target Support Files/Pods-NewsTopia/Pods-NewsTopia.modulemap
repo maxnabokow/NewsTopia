@@ -1,0 +1,6 @@
+framework module Pods_NewsTopia {
+  umbrella header "Pods-NewsTopia-umbrella.h"
+
+  export *
+  module * { export * }
+}

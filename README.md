@@ -1,4 +1,4 @@
-# NewsTopia
+# TrustMe
 A mobile application that helps people identify community-trusted news articles on the go, hassle-free.
 Created at HackNC by Max Nabokow, Aan Patel, Beliz Yilmaz, and Theo Steiner.
 
