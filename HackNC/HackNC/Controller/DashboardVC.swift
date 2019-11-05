@@ -25,31 +25,6 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return t
     }()
     
-    
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        if Auth.auth().currentUser == nil {
-//            present(LoginVC(), animated: true)
-//        } else {
-//            if HTMLService.shared.hasRecentPost() {
-//                if let newArticle = HTMLService.shared.parseRecentPost() {
-//
-//                    let createArticleVC = CreateArticleVC()
-//                    createArticleVC.configure(article: newArticle)
-//                    present(createArticleVC, animated: true)
-//
-//                    FirestoreService.shared.isUnique(newArticle, completion: { (unique) in
-//                        if unique {
-//                            FirestoreService.shared.create(newArticle)
-//                        }
-//                    })
-//                }
-//            }
-//        }
-//    }
-    
     override func viewWillAppear(_ animated: Bool) {
         if Auth.auth().currentUser == nil {
             present(LoginVC(), animated: true)
@@ -68,18 +43,11 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .darkGray
-        navigationController?.navigationBar.barTintColor = .darkGray
-        navigationController?.navigationBar.backgroundColor = .darkGray
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        
-        navigationItem.rightBarButtonItem = .init(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
-        navigationItem.rightBarButtonItem?.tintColor = .white
-        fetchArticles()
-        
         title = "Feed"
+        view.backgroundColor = .darkGray
+        setupNavBar()
+        
+        fetchArticles()
         
         table.delegate = self
         table.dataSource = self
@@ -103,6 +71,17 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             self.articles = articles
             self.table.reloadData()
         }
+    }
+    
+    fileprivate func setupNavBar() {
+        navigationController?.navigationBar.barTintColor = .darkGray
+        navigationController?.navigationBar.backgroundColor = .darkGray
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
+        navigationItem.rightBarButtonItem = .init(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
     fileprivate func setupLayout() {

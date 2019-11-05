@@ -12,7 +12,5 @@ class MainNavigationVC: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
 }
