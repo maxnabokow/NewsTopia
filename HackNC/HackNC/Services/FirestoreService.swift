@@ -79,17 +79,12 @@ class FirestoreService {
         
         // update article document
         articles.document(articleTitle + articleSource).updateData([
-//            "title" : articleTitle,
-//            "description" : article.description ?? "",
-//            "source" : articleSource,
-//            "url" : article.url ?? "",
-//            "timestamp" : article.timeStamp ?? "",
             "totalRating" : FieldValue.increment(Int64(review.rating)),
             "numReviews" : FieldValue.increment(Int64(1))
         ])
     }
     
-    func isUnique(_ article: Article, completion: @escaping (Bool) -> Void) {
+    func checkUnique(_ article: Article, completion: @escaping (Bool) -> Void) {
         
         if let articleTitle = article.title,
             let articleSource = article.source {

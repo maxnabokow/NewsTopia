@@ -88,13 +88,16 @@ class CreateArticleVC: UIViewController {
     }
     
     @objc func sendTapped() {
-        FirestoreService.shared.isUnique(article) { (unique) in
+        FirestoreService.shared.checkUnique(article) { (unique) in
             if unique {
                 FirestoreService.shared.createArticle(self.article)
-                
             }
             
-            let review = Review(user_id: Auth.auth().currentUser?.uid ?? "", comment: self.commentTextView.text, rating: Int(self.ratingSlider.value))
+            let review = Review(
+                user_id: Auth.auth().currentUser?.uid ?? "",
+                comment: self.commentTextView.text,
+                rating: Int(self.ratingSlider.value)
+            )
             FirestoreService.shared.createReview(for: self.article, review: review)
         }
         dismiss(animated: true, completion: nil)
