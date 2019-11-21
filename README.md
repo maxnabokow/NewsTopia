@@ -1,6 +1,6 @@
-# TrustMe
+# NewsTopia
 A mobile application that helps people identify community-trusted news articles on the go, hassle-free.
-Created at HackNC by Max Nabokow, Aan Patel, Beliz Yilmaz, and Theo Steiner.
+Created at HackNC 2019 by Max Nabokow, Aan Patel, Beliz Yilmaz, and Theo Steiner.
 
 Algolia iOS Setup Link:
 https://github.com/algolia/algoliasearch-client-swift/tree/master/AlgoliaSearch.xcodeproj
